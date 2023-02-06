@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}"
+          href="../css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2>카드 목록</h2>
+    </div>
+
+<!--
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary float-end"
+                    onclick="location.href='addForm.html'"
+                    th:onclick="|location.href='@{/items/add}'|"
+                    type="button">상품 등록
+            </button>
+        </div>
+    </div>
+-->
+    <form  method="get" class="form-inline">
+        <div class="row">
+            <div class="col">
+                <input type="text" id="accountId" name="accountId" class="form-control" th:value="${accountId}?: _" placeholder="계좌 번호">
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-secondary mb-2">검색</button>
+            </div>
+            <div class="col">
+            </div>
+        <div class="col">
+            <div class="col">
+                <button class="btn btn-primary float-end"
+                        onclick="location.href='addForm.html'"
+                        th:onclick="|location.href='@{/cards/add}'|"
+                        type="button">카드 등록
+                </button>
+            </div>
+        </div>
+    </div>
+
+    </form>
+
+    <hr class="my-4">
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>카드 한도</th>
+                <th>카드 타입</th>
+                <th>계좌 번호</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="card : ${cards}">
+                <td><a href="card.html" th:href="@{/cards/{cardId}(cardId=${card.cardId})}" th:text="${card.cardId}">id</a></td>
+                <td th:text="${card.max}">max</td>
+                <td th:text="${card.cardType}">cardType</td>
+                <td th:text="${card.accountId.accountId}">accountId</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div> <!-- /container -->
+
+</body>
+</html>

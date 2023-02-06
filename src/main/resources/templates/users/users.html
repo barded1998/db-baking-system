@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}"
+          href="../css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" style="max-width: 1200px">
+    <div class="py-5 text-center">
+        <h2>유저 목록</h2>
+    </div>
+
+    <!--
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-primary float-end"
+                        onclick="location.href='addForm.html'"
+                        th:onclick="|location.href='@{/items/add}'|"
+                        type="button">상품 등록
+                </button>
+            </div>
+        </div>
+    -->
+    <form  method="get" class="form-inline">
+        <div class="row">
+            <div class="col">
+                <input type="text" id="userId" name="userId" class="form-control" th:value="${userId}?: _"
+                       placeholder="유저 ID">
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-secondary mb-2">검색</button>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+                <div class="col">
+                    <button class="btn btn-primary float-end"
+                            onclick="location.href='addForm.html'"
+                            th:onclick="|location.href='@{/users/add}'|"
+                            type="button">유저 등록
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <hr class="my-4">
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>휴대폰 번호</th>
+                <th>주소</th>
+                <th>생일</th>
+                <th>직업</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td><a href="user.html" th:href="@{/users/{userId}(userId=${user.userId})}"
+                       th:text="${user.userId}">id</a></td>
+                <td><a href="user.html" th:href="@{|/users/${user.userId}|}" th:text="${user.name}">이름</a></td>
+                <td th:text="${user.email}">email</td>
+                <td th:text="${user.phoneNumber}">phoneNumber</td>
+                <td th:text="${user.address}">address</td>
+                <td th:text="${user.birthday}">birthday</td>
+                <td th:text="${user.job}">job</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div> <!-- /container -->
+
+</body>
+</html>

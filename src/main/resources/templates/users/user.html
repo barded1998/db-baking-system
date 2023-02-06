@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}"
+          href="../css/bootstrap.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>유저 정보</h2>
+    </div>
+
+<!--    &lt;!&ndash; 추가 &ndash;&gt;-->
+<!--    <h2 th:if="${param.status}" th:text="'저장 완료'"></h2>-->
+
+    <div>
+        <label for="userId">유저 ID</label>
+        <input type="text" id="userId" name="userId" class="form-control" value="1" th:value="${user.userId}" readonly>
+    </div>
+    <div>
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" class="form-control" value="상품A" th:value="${user.name}" readonly>
+    </div>
+    <div>
+        <label for="email">이메일</label>
+        <input type="text" id="email" name="email" class="form-control" value="10000" th:value="${user.email}" readonly>
+    </div>
+    <div>
+        <label for="phoneNumber">휴대폰 번호</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" value="10" th:value="${user.phoneNumber}" readonly>
+    </div>
+    <div>
+        <label for="address">휴대폰 번호</label>
+        <input type="text" id="address" name="address" class="form-control" value="10" th:value="${user.address}" readonly>
+    </div>
+    <div>
+        <label for="birthday">휴대폰 번호</label>
+        <input type="text" id="birthday" name="birthday" class="form-control" value="10" th:value="${user.birthday}" readonly>
+    </div>
+    <div>
+        <label for="job">휴대폰 번호</label>
+        <input type="text" id="job" name="job" class="form-control" value="10" th:value="${user.job}" readonly>
+    </div>
+
+
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-primary btn-lg"
+                    onclick="location.href='addForm.html'"
+                    th:onclick="|location.href='@{/accounts/add(userId=${user.userId})}'|"
+                    type="button">계좌 생성</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    onclick="location.href='users.html'"
+                    th:onclick="|location.href='@{/users}'|"
+                    type="button">목록으로</button>
+        </div>
+    </div>
+
+</div> <!-- /container -->
+</body>
+</html>

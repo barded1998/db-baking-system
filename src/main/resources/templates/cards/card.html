@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}"
+          href="../css/bootstrap.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>카드 정보</h2>
+    </div>
+
+<!--    &lt;!&ndash; 추가 &ndash;&gt;-->
+<!--    <h2 th:if="${param.status}" th:text="'저장 완료'"></h2>-->
+
+    <div>
+        <label for="cardId">ID</label>
+        <input type="text" id="cardId" name="cardId" class="form-control" value="1" th:value="${card.cardId}" readonly>
+    </div>
+    <div>
+        <label for="max">잔고</label>
+        <input type="text" id="max" name="max" class="form-control" value="1" th:value="${card.max}" readonly>
+    </div>
+    <div>
+        <label for="cardType">카드 타입</label>
+        <input type="text" id="cardType" name="cardType" class="form-control" value="1" th:value="${card.cardType}" readonly>
+    </div>
+    <div>
+        <label for="date">카드 신청 일자</label>
+        <input type="text" id="date" name="date" class="form-control" value="1" th:value="${card.date}" readonly>
+    </div>
+    <div>
+        <label for="lastUse">마지막 결제 일자</label>
+        <input type="text" id="lastUse" name="lastUse" class="form-control" value="1" th:value="${card.lastUse}" readonly>
+    </div>
+    <div>
+        <label for="accountId">계좌 번호</label>
+        <input type="text" id="accountId" name="accountId" class="form-control" value="1" th:value="${card.accountId.accountId}" readonly>
+    </div>
+    <div>
+        <label for="userId">유저 ID</label>
+        <input type="text" id="userId" name="userId" class="form-control" value="1" th:value="${card.user.id.userId}" readonly>
+    </div>
+    <div>
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" class="form-control" value="상품A" th:value="${card.user.id.name}" readonly>
+    </div>
+    <div>
+        <label for="email">이메일</label>
+        <input type="text" id="email" name="email" class="form-control" value="10000" th:value="${card.user.id.email}" readonly>
+    </div>
+    <div>
+        <label for="phoneNumber">휴대폰 번호</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" value="10" th:value="${card.user.id.phoneNumber}" readonly>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    onclick="location.href='users.html'"
+                    th:onclick="|location.href='@{/cards}'|"
+                    type="button">목록으로</button>
+        </div>
+    </div>
+
+</div> <!-- /container -->
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}"
+          href="../css/bootstrap.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 250px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>거래</h2>
+    </div>
+
+    <!--    &lt;!&ndash; 추가 &ndash;&gt;-->
+    <!--    <h2 th:if="${param.status}" th:text="'저장 완료'"></h2>-->
+
+    <hr class="my-4">
+
+    <div class="py-3 text-center">
+        <h4>
+            <a style="text-decoration: none" th:href="@{/transaction/deposit}">입금하기</a>
+        </h4>
+    </div>
+    <div class="py-3 text-center">
+        <h4>
+            <a style="text-decoration: none" th:href="@{/transaction/withdrawal}">출금하기</a>
+        </h4>
+    </div>
+    <div class="py-3 text-center">
+        <h4>
+            <a style="text-decoration: none" th:href="@{/transaction/transfer}">송금하기</a>
+        </h4>
+    </div>
+    <div class="py-3 text-center">
+        <h4>
+            <a style="text-decoration: none" th:href="@{/transaction/cardPayment}">카드결제</a>
+        </h4>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    onclick="location.href='users.html'"
+                    th:onclick="|location.href='@{/}'|"
+                    type="button">홈화면으로
+            </button>
+        </div>
+    </div>
+
+</div> <!-- /container -->
+</body>
+</html>

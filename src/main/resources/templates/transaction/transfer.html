@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>송금</h2>
+    </div>
+
+    <form action="transfer.html" th:action method="post">
+        <div>
+            <label for="fromAccountId">어디에서 돈을 보낼까요?</label>
+            <input type="text" id="fromAccountId" name="fromAccountId" class="form-control" placeholder="계좌 번호를 입력하세요">
+        </div>
+        <div>
+            <label for="toAccountId">어디로 돈을 보낼까요?</label>
+            <input type="text" id="toAccountId" name="toAccountId" class="form-control" placeholder="계좌 번호를 입력하세요">
+        </div>
+        <div>
+            <label for="money">얼마나 옮길까요?</label>
+            <input type="text" id="money" name="money" class="form-control" placeholder="금액을 입력하세요">
+        </div>
+
+        <hr class="my-4">
+
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">보내기</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg"
+                        onclick="location.href='transaction.html'"
+                        th:onclick="|location.href='@{/transaction}'|"
+                        type="button">취소</button>
+            </div>
+        </div>
+
+    </form>
+
+</div> <!-- /container -->
+</body>
+</html>

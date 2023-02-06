@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>카드</h2>
+    </div>
+
+    <form action="cardPayment.html" th:action method="post">
+        <div>
+            <label for="cardId">카드 번호</label>
+            <input type="text" id="cardId" name="cardId" class="form-control" placeholder="카드 번호를 입력하세요">
+        </div>
+        <div>
+            <label for="money">결제할 금액</label>
+            <input type="text" id="money" name="money" class="form-control" placeholder="결제할 금액을 입력하세요">
+        </div>
+
+        <hr class="my-4">
+
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">결제</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg"
+                        onclick="location.href='transaction.html'"
+                        th:onclick="|location.href='@{/transaction}'|"
+                        type="button">취소</button>
+            </div>
+        </div>
+
+    </form>
+
+</div> <!-- /container -->
+</body>
+</html>

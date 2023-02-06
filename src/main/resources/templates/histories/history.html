@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}"
+          href="../css/bootstrap.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>거래 내역</h2>
+    </div>
+
+<!--    &lt;!&ndash; 추가 &ndash;&gt;-->
+<!--    <h2 th:if="${param.status}" th:text="'저장 완료'"></h2>-->
+
+    <div>
+        <label for="historyId">ID</label>
+        <input type="text" id="historyId" name="historyId" class="form-control" value="1" th:value="${history.id.historyId}" readonly>
+    </div>
+    <div>
+        <label for="accountId">계좌 번호</label>
+        <input type="text" id="accountId" name="accountId" class="form-control" value="1" th:value="${history.id.accountId}" readonly>
+    </div>
+    <div>
+        <label for="useDate">입출금 날짜</label>
+        <input type="text" id="useDate" name="useDate" class="form-control" value="1" th:value="${history.id.useDate}" readonly>
+    </div>
+    <div>
+        <label for="depositType">예금 구분</label>
+        <input type="text" id="depositType" name="depositType" class="form-control" value="1" th:value="${history.depositType}" readonly>
+    </div>
+    <div>
+        <label for="content">예금 내용</label>
+        <input type="text" id="content" name="content" class="form-control" value="1" th:value="${history.content}" readonly>
+    </div>
+    <div>
+        <label for="money">거래 금액</label>
+        <input type="text" id="money" name="money" class="form-control" value="상품A" th:value="${history.money}" readonly>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-lg"
+                    onclick="location.href='users.html'"
+                    th:onclick="|location.href='@{/histories}'|"
+                    type="button">목록으로</button>
+        </div>
+    </div>
+
+</div> <!-- /container -->
+</body>
+</html>
